@@ -1,0 +1,20 @@
+site_name: lncScore Documentation
+site_url: http://lncscore.openbioinformatics.org/
+repo_url: http://github.com/WGLab/lncScore/
+repo_name: GitHub
+site_description: Documentation for lncScore software
+site_author: Jian Zhao, et al
+site_favicon: favicon.ico
+copyright: 2016- lncScore
+google_analytics: ['UA-73542276-1', 'lncscore.openbioinformatics.org']
+
+docs_dir: docs
+
+pages:
+- Home: index.md
+- User Guide:
+  - Download: user-guide/download.md
+  - Manual: user-guide/manual.md
+- Misc:
+  - FAQ: misc/faq.md
+  - What is New: misc/whatsnew.md
