@@ -16,7 +16,7 @@ lncScore is developed by Jian Zhao (zhao_doctor@hotmail.com). For questions and 
 
 # Reference
 
-- Zhao J, Song X, Wang K. lncScore: alignment-free identification of lncRNA from assembled novel transcripts. *Submitted*, 2016
+- Zhao J, Song X\*, Wang K\*. lncScore: alignment-free identification of lncRNA from assembled novel transcripts. *Submitted*, 2016
 
 # License
 
