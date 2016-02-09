@@ -6,15 +6,15 @@ Please click the menu items to navigate through this website. Check [here](misc/
 
 ---
 
-* ![new](img/new.png) 2015Feb09: Documentation for lncScore is added, and can now be accessed from http://lncscore.openbioinformatics.org.
+* ![new](img/new.png) 2016Feb09: Documentation for lncScore is added, and can now be accessed from http://lncscore.openbioinformatics.org.
 
-* ![new](img/new.png) 2015Jan31: Initial version of lncScore (v1.0.0) is released to the public.
+* ![new](img/new.png) 2016Jan31: Initial version of lncScore (v1.0.0) is released to the public.
 
 ---
 
 ## Reference
 
-- Zhao J, Song X, Wang K. lncScore: alignment-free identification of lncRNA from assembled novel transcripts. *Submitted*, 2016
+- Zhao J, Song X\*, Wang K\*. lncScore: alignment-free identification of lncRNA from assembled novel transcripts. *Submitted*, 2016
 
 
 
