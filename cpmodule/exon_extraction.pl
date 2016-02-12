@@ -13,7 +13,8 @@ my %exonlen = ();
 open(ID,$input) || die "$!";
 while(<ID>){
 	if (/^>/){
-		/^>([A-Z0-9.]*)/;
+		/^>(\S*)/;
+		print $1."\n";
 	#	my @a = split(" ",$_);
 #		print $1,"\n";
 		if (!exists($id{$1})) {
@@ -30,20 +31,20 @@ close(ID);
 open(ID,$origin) || die "$!";
 open(IDNEW,$output) || die "$!";
 while(<ID>) {
+	if (/\sexon\s*.*transcript_id\s\"(\S*)\";/) {
 
-	if (/\sexon\s*.*transcript_id\s\"([A-Z0-9.]*)\";/) {
 		if (exists($id{$1})) {
+            #print $1."exon \n";
 #			$id{$1} += 1;
 			my @a = split(" ",$_);
 			my $len = $a[4] - $a[3] +1;
 			my $s = $exonlen{$1};
 			$s = $s . " " . $len;
 			$exonlen{$1} = $s;
-		
-			#$exonlen{$1} .= chr($len);			
+			#$exonlen{$1} .= chr($len);
 
 		}
-	
+
 	}
 }
 close(ID);
@@ -51,7 +52,7 @@ close(ID);
 open(ID,$input) || die "$!";
 while(<ID>){
         if (/^>/){
-                /^>([A-Z0-9.]*)/;
+                /^>(\S*)/;
 		my $len = join(" ",$exonlen{$1});
 		print IDNEW ">";
 		print IDNEW $1,"\t";
