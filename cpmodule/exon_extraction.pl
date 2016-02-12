@@ -14,7 +14,7 @@ open(ID,$input) || die "$!";
 while(<ID>){
 	if (/^>/){
 		/^>(\S*)/;
-		print $1."\n";
+		#print $1."\n";
 	#	my @a = split(" ",$_);
 #		print $1,"\n";
 		if (!exists($id{$1})) {
