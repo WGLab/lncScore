@@ -100,6 +100,31 @@ def TwoLineFasta (Seq_Array):
                 Tmp_trans_str = Tmp_trans_str + str(Seq_Array[i])
     return Tmp_sequence_Arr
 #==============================================================================
+# Remove transcripts shorter than 200nt
+#==============================================================================
+   
+def Check_length (input_arr,temp_log):
+    LogResult = temp_log + '.log'
+    LogFile = open(LogResult,'w')
+    LogFile.write('Transcripts shorter than 200nt:\n')
+    Tmp_Arr = []
+    for n in range(len(input_arr)):
+        if n == 0 or n % 2 == 0:
+            label = input_arr[n]
+        else :
+            seq = input_arr[n]
+            if len(seq) > 200:
+                Tmp_Arr.append(label)
+                Tmp_Arr.append(seq)
+            else:
+                TempLabel = label.split(' ')
+                LogString = TempLabel[0] +'\n'
+                LogFile.write(LogString)
+                LogString = seq +'\n'
+                LogFile.write(LogString)
+    LogFile.close()
+    return Tmp_Arr
+#==============================================================================
 # construct id array and sequence array
 #==============================================================================
    
@@ -477,7 +502,9 @@ if int(Parallel) == 1:
     del inFilesArr
     sLen = len(sequence_Arr) - 1
     del sequence_Arr[sLen]
-    ARRAY =  TwoLineFasta(sequence_Arr)
+    ARRAY_temp =  TwoLineFasta(sequence_Arr)
+    ARRAY = Check_length(ARRAY_temp,outPutFileName)
+    del ARRAY_temp
     inFileLength = len(ARRAY)/2
     del sequence_Arr
     mainProcess(ARRAY,outPutFileName,1,coding,noncoding,Alphabet,Matrix_hash,classifier)
@@ -491,8 +518,10 @@ if int(Parallel) > 1:
     del inFilesArr
     sLen = len(sequence_Arr) - 1
     del sequence_Arr[sLen]
-    ARRAY =  TwoLineFasta(sequence_Arr)
+    ARRAY_temp =  TwoLineFasta(sequence_Arr)
     del sequence_Arr
+    ARRAY = Check_length(ARRAY_temp,outPutFileName)
+    del ARRAY_temp
     Label_Array,FastA_Seq_Array = Tran_Seq(ARRAY)
     inFileLength = len(Label_Array)
     TOT_STRING = []
