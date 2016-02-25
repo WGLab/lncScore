@@ -113,7 +113,7 @@ def Check_length (input_arr,temp_log):
             label = input_arr[n]
         else :
             seq = input_arr[n]
-            if len(seq) > 200:
+            if len(seq.lower().replace('n', ''))> 200:
                 Tmp_Arr.append(label)
                 Tmp_Arr.append(seq)
             else:
