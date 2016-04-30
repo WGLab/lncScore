@@ -7,6 +7,7 @@ if sys.version_info[0] != 2 or sys.version_info[1] != 7:
 	sys.exit()
 
 import os
+sys.path.append(os.getcwd()+'\\cpmodule')
 import re
 import math
 import string
