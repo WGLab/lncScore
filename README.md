@@ -22,6 +22,10 @@ In most use cases the best way to install Python and scikit-learn package on you
 
 If the input file in .bed format, then an additional python package named 'pysam' is required to be installed first. After the installation of Anaconda, you can use the command 'conda install pysam' to install the Pysam package.
 
+# Datasets
+
+The id of transcripts in the human/mouse training and testing datasets are provided in the 'dataset' fold. The corresponding sequences and GTF files can be easily found and downloaed from GENCODE (Human Version 23, http://www.gencodegenes.org/releases/23.html and Mouse Version 6 , http://www.gencodegenes.org/mouse_releases/6.html). 
+
 # Author
 
 lncScore is developed by Jian Zhao (zhao_doctor@hotmail.com). For questions and comments, please contact Jian or submit an issue on github.
