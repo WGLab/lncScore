@@ -24,7 +24,7 @@ If the input file in .bed format, then an additional python package named 'pysam
 
 # Datasets
 
-The id of transcripts in the human/mouse training and testing datasets are provided in the 'dataset' fold. The corresponding sequences and GTF files can be easily found and downloaed from GENCODE (Human Version 23, http://www.gencodegenes.org/releases/23.html and Mouse Version 6 , http://www.gencodegenes.org/mouse_releases/6.html). 
+The id of transcripts in the human/mouse training and testing datasets are provided in the 'dataset' folder. The corresponding sequences and GTF files can be easily found and downloaed from GENCODE (Human Version 23, http://www.gencodegenes.org/releases/23.html and Mouse Version 6 , http://www.gencodegenes.org/mouse_releases/6.html). 
 
 # Author
 
