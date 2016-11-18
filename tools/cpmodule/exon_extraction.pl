@@ -49,17 +49,26 @@ while(<ID>) {
 }
 close(ID);
 # print IDNEW "ID\tExonnumber\n";
+my $flag = 0;
 open(ID,$input) || die "$!";
 while(<ID>){
         if (/^>/){
                 /^>(\S*)/;
 		my $len = join(" ",$exonlen{$1});
-		print IDNEW ">";
-		print IDNEW $1,"\t";
-		print IDNEW $exonlen{$1},"\n";
+		my @tmp = split(' ',$exonlen{$1});
+		my $num = @tmp;
+		if ($num){
+			$flag = 1;
+			print IDNEW ">";
+			print IDNEW $1,"\t";
+			print IDNEW $exonlen{$1},"\n";
 #		print IDNEW $id{$1},"\n";
+		}
 	} else {
-		print IDNEW $_;
+		if ($flag) {
+			print IDNEW $_;
+			$flag = 0;
+		}
 	}
 }
 close(ID);
