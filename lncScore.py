@@ -299,8 +299,8 @@ def HexamerFeatures(seq,hash_matrix):
 def PrintResult(ids,labels,probability,outputfile):
 
         
-    Tabel = 'Transcript_id' + '\t' + 'Index' + '\t' + 'Coding_score' + '\n'
-    outputfile.write(Tabel)
+#    Tabel = 'Transcript_id' + '\t' + 'Index' + '\t' + 'Coding_score' + '\n'
+#    outputfile.write(Tabel)
     for i in range(len(ids)):
         transcriptid = ids[i]
         Arr_label = transcriptid.split('>')
@@ -328,7 +328,7 @@ def mainProcess(input,output,number,c_tab,g_tab,codonArr,hash_matrix,classifier)
         sLen = len(sequence_Arr) - 1
         del sequence_Arr[sLen]
     if number == 1:
-        SCORE = open(output,'w')
+        SCORE = open(output,'a')
         sequence_Arr = input        
     
     label_Arr_tmp = []
@@ -508,7 +508,13 @@ if int(Parallel) == 1:
     del ARRAY_temp
     inFileLength = len(ARRAY)/2
     del sequence_Arr
+    Files = open(outPutFileName,'w')
+    Tabel = 'Transcript_id' + '\t' + 'Index' + '\t' + 'Coding_score' + '\n'
+    Files.write(Tabel)
+    Files.close()
     mainProcess(ARRAY,outPutFileName,1,coding,noncoding,Alphabet,Matrix_hash,classifier)
+
+
     print('lncScore: The calculation of cpat features wws completely done!')
     print("%f second for" % (time.time() - Compute_time) + ' ' + str(inFileLength) + ' ' + "transcript's computation.")
 #    shutil.rmtree(Temp_Dir,True)   
@@ -555,6 +561,8 @@ if int(Parallel) > 1:
     data_string = ''
 
     Files = open(outPutFileName,'w')
+    Tabel = 'Transcript_id' + '\t' + 'Index' + '\t' + 'Coding_score' + '\n'
+    Files.write(Tabel)
     features = ''
     i = 1
     while i < int(Parallel)+1:
@@ -573,5 +581,4 @@ if int(Parallel) > 1:
     shutil.rmtree(Temp_Dir,True)   
 
 os.remove(inPutFileName)
-
 
