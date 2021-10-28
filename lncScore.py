@@ -253,6 +253,8 @@ def mcssProcess(tran_sec_seq,coding,noncoding):
         coding_length_store_array.append(maxEnd+1-maxStart)
   
     TotalCodingScore = sum(max_coding_Value)
+    if TotalCodingScore == 0:
+        TotalCodingScore = 1
     MaxCodingScore = max(max_coding_Value)
     indexCoding = max_coding_Value.index(MaxCodingScore)
     CodingSequenceLen = coding_length_store_array[indexCoding]
