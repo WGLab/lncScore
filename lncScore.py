@@ -3,7 +3,7 @@
 '''determine whether the version of user's python comply with the requirements of  this procedure'''
 import sys
 if sys.version_info[0] != 2 or sys.version_info[1] != 7:
-	print >>sys.stderr, "\nYou are using python" + str(sys.version_info[0]) + '.' + str(sys.version_info[1]) + " CPAT needs python2.7!\n"
+	print >>sys.stderr, "\nYou are using python" + str(sys.version_info[0]) + '.' + str(sys.version_info[1]) + " lncScore needs python2.7!\n"
 	sys.exit()
 
 import os
